@@ -7,8 +7,21 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>wm-school_tasks</title>
 	<link rel="stylesheet" href="style.css"/>
-	<script src="script.js"></script>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="script.js" defer></script>
 </head>
 <body>
+	<div id="app">
+		<div id="item">
+			<h2>Введите число и нажмите ввод</h2>
+			<input v-model="string"
+			       @keydown.enter="colonOdd"
+			       placeholder="Введите число">
+			<hr>
+			<ul>
+				<li v-for="(elem, id) in results" :key="id">{{ elem }}</li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

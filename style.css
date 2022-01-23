@@ -1,0 +1,19 @@
+* {
+	background-color: #FFF8DC;
+	color: #800000;
+	font-size: 1.5rem;
+}
+
+ul {
+	list-style: none;
+}
+
+#app {
+	display: flex;
+	justify-content: center;
+}
+
+input {
+	font-size: 1.2rem;
+	color: crimson;
+}
