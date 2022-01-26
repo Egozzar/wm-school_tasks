@@ -13,17 +13,17 @@
 <body>
 	<div id="app" class="app">
 		<div class="item">
-			<h2>Введите набор символов и нажмите ввод</h2>
+			<h2>Введите начальный и конечный год диапазона <br>
+			    через пробел и нажмите ввод
+			</h2>
 			<input v-model="string"
-			       @keydown.enter="removeDuplicates"
-			       placeholder="Введите символы">
+			       @keydown.enter="chooseYears"
+			       placeholder="1988 2022">
 			<hr>
 		</div>
 		<div class="item">
 			<ul>
-				<li v-for="(elem, ind) in results" :key="ind">
-					<span>{{ elem.start }}</span> - {{ elem.end }}
-				</li>
+				<li>{{ result }}</li>
 			</ul>
 		</div>
 	</div>

@@ -4,18 +4,25 @@ const app = Vue.createApp({
 	data() {
 		return {
 			string: '',
-			results: [],
+			result: '',
 		}
 	},
 	methods: {
-		removeDuplicates() {
-			let start = this.string.split('');
-			let startLow = start.map(item=> {
-				return item.toLowerCase();
-			});
-			let end = [...new Set(startLow)];
+		chooseYears() {
+			let [start, end] = this.string.split(' ');
+			start = +start;
+			end = +end;
+			let res = [];
 
-			this.results.push({start, end});
+			for (let i = start; i <= end; i++) {
+				let date = new Date(i, 2, 0);
+
+				if (date.getDate() === 29) {
+					res.push(i);
+				}
+			}
+
+			this.result = res.join(', ');
 			this.string = '';
 		}
 	}
