@@ -1,4 +1,4 @@
-* {
+body {
 	background-color: #FFF8DC;
 	color: #800000;
 	font-size: 1.5rem;
@@ -15,7 +15,15 @@ ul {
 }
 
 input {
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	color: crimson;
+}
+
+span {
+	color: crimson;
+}
+
+.item {
+	font-size: 2rem;
 }
 

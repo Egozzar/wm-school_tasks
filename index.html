@@ -13,17 +13,19 @@
 <body>
 	<div id="app" class="app">
 		<div class="item">
-			<h2>Введите начальный и конечный год диапазона <br>
-			    через пробел и нажмите ввод
-			</h2>
-			<input v-model="string"
-			       @keydown.enter="chooseYears"
-			       placeholder="1988 2022">
+			<h1>Отобразить элементы в случайном порядке</h1>
+			<label for="input">Введите несколько цифр и нажмите ввод:</label><br>
+				<input v-model="string"
+			       @keydown.enter="shuffle"
+			       placeholder="0123456789"
+				     id="input">
 			<hr>
 		</div>
 		<div class="item">
 			<ul>
-				<li>{{ result }}</li>
+				<li v-for="(elem, ind) in results" :key="ind">
+					<span>{{ elem.start }}</span> - {{ elem.end }}
+				</li>
 			</ul>
 		</div>
 	</div>

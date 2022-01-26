@@ -4,25 +4,16 @@ const app = Vue.createApp({
 	data() {
 		return {
 			string: '',
-			result: '',
+			results: [],
 		}
 	},
 	methods: {
-		chooseYears() {
-			let [start, end] = this.string.split(' ');
-			start = +start;
-			end = +end;
-			let res = [];
+		shuffle() {
+			let args = this.string.split('');
+			args.sort(() => Math.random() - 0.5);
 
-			for (let i = start; i <= end; i++) {
-				let date = new Date(i, 2, 0);
-
-				if (date.getDate() === 29) {
-					res.push(i);
-				}
-			}
-
-			this.result = res.join(', ');
+			let end = args.join('');
+			this.results.push({start: this.string, end});
 			this.string = '';
 		}
 	}
