@@ -11,13 +11,15 @@
 	<script src="script.js" defer></script>
 </head>
 <body>
-	<div id="app">
-		<div id="item">
-			<h2>Введите слово и нажмите ввод</h2>
+	<div id="app" class="app">
+		<div class="item">
+			<h2>Введите набор символов и нажмите ввод</h2>
 			<input v-model="string"
-			       @keydown.enter="changeRegister"
-			       placeholder="ВвЕдИтЕ СлОвО">
+			       @keydown.enter="removeDuplicates"
+			       placeholder="Введите символы">
 			<hr>
+		</div>
+		<div class="item">
 			<ul>
 				<li v-for="(elem, ind) in results" :key="ind">
 					<span>{{ elem.start }}</span> - {{ elem.end }}

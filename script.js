@@ -8,12 +8,14 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		changeRegister() {
-			let res = this.string.split('').map(item => {
-				let postLow = item.toLowerCase();
-				return item === postLow ? item.toUpperCase() : postLow;
-			}).join('');
-			this.results.push({start: this.string, end: res});
+		removeDuplicates() {
+			let start = this.string.split('');
+			let startLow = start.map(item=> {
+				return item.toLowerCase();
+			});
+			let end = [...new Set(startLow)];
+
+			this.results.push({start, end});
 			this.string = '';
 		}
 	}
