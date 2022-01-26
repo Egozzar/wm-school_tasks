@@ -9,11 +9,10 @@ const app = Vue.createApp({
 	},
 	methods: {
 		shuffle() {
-			let args = this.string.split('');
-			args.sort(() => Math.random() - 0.5);
+			let [start, length = 1] = this.string.split(' ');
+			let end = start.slice(0, +length);
 
-			let end = args.join('');
-			this.results.push({start: this.string, end});
+			this.results.push({start, end});
 			this.string = '';
 		}
 	}
