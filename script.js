@@ -8,9 +8,10 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		shuffle() {
+		getLast() {
 			let [start, length = 1] = this.string.split(' ');
-			let end = start.slice(0, +length);
+			length = +length;
+			let end = start.slice(-length);
 
 			this.results.push({start, end});
 			this.string = '';

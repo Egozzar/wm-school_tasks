@@ -13,12 +13,12 @@
 <body>
 	<div id="app" class="app">
 		<div class="item">
-			<h1>Получить первые элементы массива</h1>
+			<h1>Получить последние элементы массива</h1>
 			<label for="input">Введите массив из 10-ти символов<br>
 			                   и через пробел цифру от -10 до 10
 			</label><br>
 				<input v-model="string"
-			       @keydown.enter="shuffle"
+			       @keydown.enter="getLast"
 			       placeholder="0743qbeW89 5"
 				     id="input">
 			<hr>
