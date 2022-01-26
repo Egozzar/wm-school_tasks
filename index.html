@@ -13,13 +13,15 @@
 <body>
 	<div id="app">
 		<div id="item">
-			<h2>Введите число и нажмите ввод</h2>
+			<h2>Введите слово и нажмите ввод</h2>
 			<input v-model="string"
-			       @keydown.enter="colonOdd"
-			       placeholder="Введите число">
+			       @keydown.enter="changeRegister"
+			       placeholder="ВвЕдИтЕ СлОвО">
 			<hr>
 			<ul>
-				<li v-for="(elem, id) in results" :key="id">{{ elem }}</li>
+				<li v-for="(elem, ind) in results" :key="ind">
+					<span>{{ elem.start }}</span> - {{ elem.end }}
+				</li>
 			</ul>
 		</div>
 	</div>

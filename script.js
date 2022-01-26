@@ -8,17 +8,12 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		colonOdd () {
-			let arr = this.string.split('');
-
-			for (let i = 0; i < arr.length; i++) {
-				if ((arr[i] % 2) && (arr[i + 1] % 2)) {
-					arr.splice(i + 1, 0, ':');
-					i++;
-				}
-			}
-
-			this.results.push( arr.join('') );
+		changeRegister() {
+			let res = this.string.split('').map(item => {
+				let postLow = item.toLowerCase();
+				return item === postLow ? item.toUpperCase() : postLow;
+			}).join('');
+			this.results.push({start: this.string, end: res});
 			this.string = '';
 		}
 	}
