@@ -8,16 +8,17 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		sumArr() {
-			let [arr1, arr2] = this.string.split(' ')
-				.map(item => item.split(''));
-			let long = arr1.length > arr2.length ? arr1 : arr2;
-			let short = arr1 === long ? arr2 : arr1;
-			let res = long.map((item, i) => {
+		countIdentic() {
+			let arr = this.string.split('');
+			let start = arr.map(item => +item);
+			let set = new Set();
 
-				return (short[i] === undefined) ? +item : +item + +short[i];
-			});
-			this.results.push({start: `[${long}] + [${short}] `, end: res});
+			while (arr.length) {
+				let item = arr.pop();
+				if (arr.includes(item)) set.add(+item);
+			}
+			let res = set.size;
+			this.results.push({start, end: ` повторяющихся элементов - ${res}шт: [${[...set]}]`})
 			this.string = '';
 		}
 	}
