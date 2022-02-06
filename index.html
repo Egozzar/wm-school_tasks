@@ -13,13 +13,13 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Разворачивание массива массивов</h1>
-		<label for="input">Введите большое число и нажмите ввод
-
+		<h1>Объединить два массива без дублирования элементов</h1>
+		<label for="input">Введите два числа через пробел<br>
+			                 и нажмите ввод
 		</label><br>
 		<input v-model="string"
-					 @keydown.enter="expand"
-					 placeholder="597863002357681"
+					 @keydown.enter="concatOrigin"
+					 placeholder="597863002357681 24357564"
 					 id="input">
 		<hr>
 	</div>
