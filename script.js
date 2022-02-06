@@ -8,12 +8,25 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		concatOrigin() {
+		arrayDiff() {
 			let [arr1, arr2] = this.string.split(' ')
-				.map(item => item.split('').map(item => +item));
+				.map(item => item.split(''));
+			let [start1, start2] = [arr1, arr2].map(item => item.slice());
+			let end = new Set();
 
-			let end = new Set([...arr1, ...arr2]);
-			this.results.push({start: `[${arr1}] + [${arr2}]`, end: [...end]});
+			while (arr1.length) {
+				let item = arr1.pop();
+				if (arr2.includes(item)) {
+					arr2 = arr2.filter(elem => elem !== item);
+				} else {
+					end.add(item);
+				}
+			}
+
+			if (arr2.length) {
+				arr2.forEach(item => end.add(item));
+			}
+			this.results.push({start: `[${start1}] - [${start2}]`, end: [...end]});
 			this.string = '';
 		},
 	}

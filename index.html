@@ -13,20 +13,20 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Объединить два массива без дублирования элементов</h1>
+		<h1>Разница между двумя массивами</h1>
 		<label for="input">Введите два числа через пробел<br>
 			                 и нажмите ввод
 		</label><br>
 		<input v-model="string"
-					 @keydown.enter="concatOrigin"
-					 placeholder="597863002357681 24357564"
+					 @keydown.enter="arrayDiff"
+					 placeholder="597681 243574"
 					 id="input">
 		<hr>
 	</div>
 	<div class="item">
 		<ul>
 			<li v-for="(elem, ind) in results" :key="ind">
-				<span>{{ elem.start }}</span> - {{ elem.end }}
+				<span>{{ elem.start }}</span> = {{ elem.end }}
 			</li>
 		</ul>
 	</div>
