@@ -13,12 +13,12 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Количество повторяющихся элементов в массиве</h1>
-		<label for="input">Введите большое число
+		<h1>Разворачивание массива массивов</h1>
+		<label for="input">Введите большое число и нажмите ввод
 
 		</label><br>
 		<input v-model="string"
-					 @keydown.enter="countIdentic"
+					 @keydown.enter="expand"
 					 placeholder="597863002357681"
 					 id="input">
 		<hr>

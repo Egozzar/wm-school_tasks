@@ -8,18 +8,38 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		countIdentic() {
-			let arr = this.string.split('');
-			let start = arr.map(item => +item);
-			let set = new Set();
+		expand() {
+			let arr = this.string.split('')
+				.map(item => Array.from({0: +item,
+					1: Array.from({0: ++item, length:1}), length:2}));
 
-			while (arr.length) {
-				let item = arr.pop();
-				if (arr.includes(item)) set.add(+item);
-			}
-			let res = set.size;
-			this.results.push({start, end: ` повторяющихся элементов - ${res}шт: [${[...set]}]`})
+			let start = this.copyDeep(arr);
+			let end = this.recurs(arr);
+			this.results.push({start, end});
 			this.string = '';
+		},
+		copyDeep(arr) {
+			let clone = [];
+			arr.forEach((item, ind) => {
+				if (Array.isArray(item)) {
+					clone[ind] = this.copyDeep(item);
+				} else {
+					clone[ind] = item;
+				}
+			});
+			return clone;
+		},
+		recurs(arr) {
+			let clone = [];
+
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i].fill) {
+					clone = clone.concat( this.recurs(arr[i]) );
+				} else {
+					clone.push(arr[i]);
+				}
+			}
+			return clone;
 		}
 	}
 });
