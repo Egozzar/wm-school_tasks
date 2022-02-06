@@ -11,25 +11,25 @@
 	<script src="script.js" defer></script>
 </head>
 <body>
-	<div id="app" class="app">
-		<div class="item">
-			<h1>Получить последние элементы массива</h1>
-			<label for="input">Введите массив из 10-ти символов<br>
-			                   и через пробел цифру от -10 до 10
-			</label><br>
-				<input v-model="string"
-			       @keydown.enter="getLast"
-			       placeholder="0743qbeW89 5"
-				     id="input">
-			<hr>
-		</div>
-		<div class="item">
-			<ul>
-				<li v-for="(elem, ind) in results" :key="ind">
-					<span>{{ elem.start }}</span> - {{ elem.end }}
-				</li>
-			</ul>
-		</div>
+<div id="app" class="app">
+	<div class="item">
+		<h1>Сумма элементов двух массивов</h1>
+		<label for="input">Введите через пробел два числа
+
+		</label><br>
+		<input v-model="string"
+					 @keydown.enter="sumArr"
+					 placeholder="2910684 227456"
+					 id="input">
+		<hr>
 	</div>
+	<div class="item">
+		<ul>
+			<li v-for="(elem, ind) in results" :key="ind">
+				<span>{{ elem.start }}</span> - {{ elem.end }}
+			</li>
+		</ul>
+	</div>
+</div>
 </body>
 </html>
