@@ -13,13 +13,12 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Разница между двумя массивами</h1>
-		<label for="input">Введите два числа через пробел<br>
-			                 и нажмите ввод
-		</label><br>
+		<h1>Сортировка массива по убыванию</h1>
+		<label for="input">Введите число</label>
+		<br>
 		<input v-model="string"
-					 @keydown.enter="arrayDiff"
-					 placeholder="597681 243574"
+					 @keydown.enter="compareNumbers"
+					 placeholder="597681"
 					 id="input">
 		<hr>
 	</div>

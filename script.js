@@ -8,26 +8,12 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		arrayDiff() {
-			let [arr1, arr2] = this.string.split(' ')
-				.map(item => item.split(''));
-			let [start1, start2] = [arr1, arr2].map(item => item.slice());
-			let end = new Set();
+		compareNumbers() {
+			let arr = this.string.split('');
+			let start = arr.map(item => +item);
 
-			while (arr1.length) {
-				let item = arr1.pop();
-				if (arr2.includes(item)) {
-					arr2 = arr2.filter(elem => elem !== item);
-					arr1 = arr1.filter(elem => elem !== item);
-				} else {
-					end.add(item);
-				}
-			}
-
-			if (arr2.length) {
-				arr2.forEach(item => end.add(item));
-			}
-			this.results.push({start: `[${start1}] - [${start2}]`, end: [...end]});
+			let end = arr.sort((a, b) => b - a).map(item => +item);
+			this.results.push({start, end});
 			this.string = '';
 		},
 	}
