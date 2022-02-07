@@ -13,23 +13,27 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Найти пары чисел,<br>
-			  сумма которых равна заданному значению</h1>
-		<label for="input">Введите через пробел число (для создания массива)<br>
-		                   и искомую сумму. Нажмите ввод.</label>
-		<br>
-		<input v-model="string"
-					 @keydown.enter="findCouple"
-					 placeholder="2537465194 10"
-					 id="input">
-		<hr>
+		<h1>Найти все значения данного свойства в массиве объектов</h1>
 	</div>
 	<div class="item">
 		<ul>
-			<li v-for="(elem, ind) in results" :key="ind">
-				<span>{{ elem.start }}</span> - {{ elem.end }}
+			<li v-for="elem in books" :key="elem.id">
+				<span>{{ elem.author }}</span> - {{ elem.title }}
 			</li>
 		</ul>
+	</div>
+	<div class="item">
+		<button
+			type="button"
+			@click="propertyValue('author')">Author
+		</button>
+		<button
+			type="button"
+			@click="propertyValue('title')">Title
+		</button>
+	</div>
+	<div class="item"
+			 :class='{textColor: isAuthor}'>{{ resValues }}
 	</div>
 </div>
 </body>
