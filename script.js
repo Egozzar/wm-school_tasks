@@ -3,19 +3,28 @@
 const app = Vue.createApp({
 	data() {
 		return {
-			books: [
-				{ id: 1, author: 'Майн Рид', title: 'Всадник без головы'},
-				{ id: 2, author: 'Жюль Верн', title: 'Капитан Немо'},
-				{ id: 3, author: 'Франц Кафка', title: 'Процесс'},
-				{ id: 4, author: 'Герман Гессе', title: 'Сиддхартха'},
-				{ id: 5, author: 'Томас Манн', title: 'Будденброки'},
-				{ id: 6, author: 'Райчел Мид', title: 'Золотая лилия'},
-			],
+			string: '',
+			results: [],
 		}
 	},
 	methods: {
-		sortBooks(field) {
-			this.books.sort((a, b) => a[field] > b[field] ? 1 : -1);
+		findCouple() {
+			let [str, num] = this.string.split(' ');
+			let arr = str.split('').map(item => +item);
+			let cloneArr = arr.slice();
+			let start = `Массив: [${cloneArr}], сумма: ${num}  `
+			let res = [];
+
+			while (arr.length > 1) {
+				let item = arr.shift();
+				let item2 = arr.find(elem => elem + item === +num);
+				if (item2) res.push(`${item}+${item2}`);
+				arr = arr.filter(elem => elem !== item && elem !== item2);
+			}
+			let end = res.length ? res.join(' ; ') : 'слагаемые не найдены.';
+
+			this.results.push({start, end});
+			this.string = '';
 		},
 	}
 });
