@@ -27,3 +27,22 @@ span {
 	font-size: 2rem;
 }
 
+button {
+	width: 120px;
+	height: 60px;
+	margin: 20px;
+	font-size: 1.5rem;
+	background-color: #800000;
+	color: #FFF8DC;
+	border: 1px solid #800000;
+	border-radius: 10px;
+}
+
+button:active{
+	border-color: #FFF8DC;
+}
+
+button:hover {
+	color: LightPink;
+}
+

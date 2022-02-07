@@ -13,21 +13,24 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Удаление ложных значений из массива</h1>
-		<label for="input">Введите число с нолями</label>
-		<br>
-		<input v-model="string"
-					 @keydown.enter="filterFalse"
-					 placeholder="2049050100"
-					 id="input">
-		<hr>
+		<h1>Сортировка массива объектов</h1>
 	</div>
 	<div class="item">
 		<ul>
-			<li v-for="(elem, ind) in results" :key="ind">
-				<span>{{ elem.start }}</span> - {{ elem.end }}
+			<li v-for="elem in books" :key="elem.id">
+				<span>{{ elem.author }}</span> - {{ elem.title }}
 			</li>
 		</ul>
+	</div>
+	<div class="item">
+			<button
+				type="button"
+			  @click="sortBooks('author')">Author
+			</button>
+			<button
+				type="button"
+				@click="sortBooks('title')">Title
+			</button>
 	</div>
 </div>
 </body>

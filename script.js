@@ -3,19 +3,19 @@
 const app = Vue.createApp({
 	data() {
 		return {
-			string: '',
-			results: [],
+			books: [
+				{ id: 1, author: 'Майн Рид', title: 'Всадник без головы'},
+				{ id: 2, author: 'Жюль Верн', title: 'Капитан Немо'},
+				{ id: 3, author: 'Франц Кафка', title: 'Процесс'},
+				{ id: 4, author: 'Герман Гессе', title: 'Сиддхартха'},
+				{ id: 5, author: 'Томас Манн', title: 'Будденброки'},
+				{ id: 6, author: 'Райчел Мид', title: 'Золотая лилия'},
+			],
 		}
 	},
 	methods: {
-		filterFalse() {
-			let arr = this.string.split('').map(item => +item);
-
-			let start = arr.slice();
-			let end = arr.filter(item => item);
-
-			this.results.push({start, end});
-			this.string = '';
+		sortBooks(field) {
+			this.books.sort((a, b) => a[field] > b[field] ? 1 : -1);
 		},
 	}
 });
