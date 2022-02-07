@@ -8,11 +8,29 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		compareNumbers() {
+		ofterElement() {
 			let arr = this.string.split('');
-			let start = arr.map(item => +item);
+			let start = arr.slice();
+			let counter = {};
 
-			let end = arr.sort((a, b) => b - a).map(item => +item);
+			for (let val of arr) {
+				counter[val] = (val in counter) ? counter[val] + 1 : 1;
+			}
+
+			let res = [];
+			let maxRepeat = 0;
+
+			for (let val of Object.entries(counter)) {
+				if (val[1] > maxRepeat) {
+					maxRepeat = val[1];
+					res = [val];
+				} else if (val[1] === maxRepeat) {
+					res.push(val);
+				}
+			}
+
+			let end = res.map(item => item[0]);
+
 			this.results.push({start, end});
 			this.string = '';
 		},

@@ -13,19 +13,19 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Сортировка массива по убыванию</h1>
+		<h1>Наиболее часто используемый элемент массива</h1>
 		<label for="input">Введите число</label>
 		<br>
 		<input v-model="string"
-					 @keydown.enter="compareNumbers"
-					 placeholder="597681"
+					 @keydown.enter="ofterElement"
+					 placeholder="294722058712"
 					 id="input">
 		<hr>
 	</div>
 	<div class="item">
 		<ul>
 			<li v-for="(elem, ind) in results" :key="ind">
-				<span>{{ elem.start }}</span> = {{ elem.end }}
+				<span>{{ elem.start }}</span> - {{ elem.end }}
 			</li>
 		</ul>
 	</div>
