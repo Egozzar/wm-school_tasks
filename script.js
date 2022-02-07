@@ -8,14 +8,13 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		sumMul() {
+		filterFalse() {
 			let arr = this.string.split('').map(item => +item);
 
 			let start = arr.slice();
-			let sum = arr.reduce((sum, val) => sum + val, 0);
-			let mul = arr.length ? arr.reduce((mul, val) => mul * val) : 0;
+			let end = arr.filter(item => item);
 
-			this.results.push({start, end: `sum = ${sum}, mul = ${mul}`});
+			this.results.push({start, end});
 			this.string = '';
 		},
 	}

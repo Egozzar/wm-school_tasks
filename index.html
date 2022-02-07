@@ -13,12 +13,12 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Сумма и произведение значений массива</h1>
-		<label for="input">Введите число</label>
+		<h1>Удаление ложных значений из массива</h1>
+		<label for="input">Введите число с нолями</label>
 		<br>
 		<input v-model="string"
-					 @keydown.enter="sumMul"
-					 placeholder="294722058712"
+					 @keydown.enter="filterFalse"
+					 placeholder="2049050100"
 					 id="input">
 		<hr>
 	</div>
