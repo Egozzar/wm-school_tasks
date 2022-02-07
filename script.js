@@ -18,6 +18,7 @@ const app = Vue.createApp({
 				let item = arr1.pop();
 				if (arr2.includes(item)) {
 					arr2 = arr2.filter(elem => elem !== item);
+					arr1 = arr1.filter(elem => elem !== item);
 				} else {
 					end.add(item);
 				}
