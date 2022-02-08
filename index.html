@@ -13,27 +13,24 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Найти все значения данного свойства в массиве объектов</h1>
+		<h1>Общая стартовая подстрока в массиве строк</h1>
 	</div>
 	<div class="item">
-		<ul>
-			<li v-for="elem in books" :key="elem.id">
-				<span>{{ elem.author }}</span> - {{ elem.title }}
-			</li>
-		</ul>
+		<label for="input">Создайте массив из двух слов, <br>
+		                   вводя их поочерёдно и нажимая ENTER <br></label>
+		<input
+			id="input"
+			v-model="string"
+		  @keydown.enter="creating">
 	</div>
 	<div class="item">
 		<button
 			type="button"
-			@click="propertyValue('author')">Author
-		</button>
-		<button
-			type="button"
-			@click="propertyValue('title')">Title
-		</button>
+			@click="startingSubstring">Search
+		</button><hr>
 	</div>
-	<div class="item"
-			 :class='{textColor: isAuthor}'>{{ resValues }}
+	<div class="item">
+		<span>{{ array }}</span> - {{ result }}
 	</div>
 </div>
 </body>

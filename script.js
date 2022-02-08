@@ -3,24 +3,32 @@
 const app = Vue.createApp({
 	data() {
 		return {
-			books: [
-				{ id: 1, author: 'Майн Рид', title: 'Всадник без головы'},
-				{ id: 2, author: 'Жюль Верн', title: 'Капитан Немо'},
-				{ id: 3, author: 'Франц Кафка', title: 'Процесс'},
-				{ id: 4, author: 'Герман Гессе', title: 'Сиддхартха'},
-				{ id: 5, author: 'Томас Манн', title: 'Будденброки'},
-				{ id: 6, author: 'Райчел Мид', title: 'Золотая лилия'},
-			],
-			resValues: '',
-			isAuthor: false,
+			string: '',
+			array: [],
+			result: '',
 		}
 	},
 	methods: {
-		propertyValue(field) {
-			this.isAuthor = field === 'author';
-			this.resValues = this.books.map(item => item[field]).join(', ');
+		startingSubstring(field) {
+			let [str1, str2] = this.array;
+			let res = '';
 
+			for (let i = 0; i < str1.length; i++) {
+				if (str1[i] === str2[i]) {
+					res += str1[i];
+				} else break;
+			}
+			this.result = res === '' ? 'Совпадений не найдено' : res;
 		},
+		creating() {
+			if (this.array.length === 2) {
+				alert('Массив уже создан. Нажмите кнопку Search.');
+				this.string = '';
+				return;
+			}
+			this.array.push(this.string);
+			this.string = '';
+		}
 	}
 });
 
