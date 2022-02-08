@@ -13,12 +13,12 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Вернуть случайный элемент из массива</h1>
-		<label for="input">Введите через запятую числа и нажмите ввод.</label>
+		<h1>Массив с заданным количеством элементов</h1>
+		<label for="input">Введите через пробел 2 числа и нажмите ввод.</label>
 		<br>
 		<input v-model="string"
-					 @keydown.enter="getRandom"
-					 placeholder="22,31,1,0,45,14"
+					 @keydown.enter="arrayFilled"
+					 placeholder="12 5"
 					 id="input">
 		<hr>
 	</div>
