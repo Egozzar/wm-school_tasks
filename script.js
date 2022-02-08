@@ -3,23 +3,18 @@
 const app = Vue.createApp({
 	data() {
 		return {
-			string: '',
+			start: [2, 3, 5, 7, 11, 13, 17, 19],
 			results: [],
 		}
 	},
 	methods: {
-		generateRange() {
-			let [start, end] = this.string.split(',').map(item => +item);
-			let [first, last] = [start, end];
-			let exp = `Начальный элемент: ${first}, конечный элемент: ${last}`;
-
-			let res = (start <= end) ? Array.from({length: end - start + 1}, () => start++) :
-				                       `Нереальный массив`;
-
-			this.results.push({exp, res});
-			this.string = '';
+		preparing() {
+			this.start.reduce((sum, val) => {
+				this.results.push(sum);
+				return sum + val;
+			});
 		},
-	}
+	},
 });
 
 const vm = app.mount('#app');
