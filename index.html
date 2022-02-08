@@ -13,25 +13,21 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Переместить элемент массива <br>
-			  из одной позиции в другую</h1>
-		<label for="input">Введите через запятую настоящую и планируемую
-			<br>позиции перемещаемого элемента и нажмите ввод.
-			<br>Препарируемый массив: <span>{{ start }}</span>
-		</label>
-
+		<h1>Массив, содержащий все целые числа <br>
+			  между start и end</h1>
+		<label for="input">Введите через запятую 2 числа (start,end) и нажмите ввод.</label>
 		<br>
 		<input v-model="string"
-					 @keydown.enter="moveElement"
-					 placeholder="1,2"
+					 @keydown.enter="generateRange"
+					 placeholder="-5,7"
 					 id="input">
 		<hr>
 	</div>
 	<div class="item">
 		<ul>
 			<li v-for="(elem, ind) in results" :key="ind">
-				 {{ elem.exp }}<br>
-				 <span>{{ elem.res }}</span>
+				{{ elem.exp }}<br>
+				<span>{{ elem.res }}</span>
 				<hr>
 			</li>
 		</ul>
