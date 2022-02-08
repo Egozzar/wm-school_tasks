@@ -13,24 +13,22 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Общая стартовая подстрока в массиве строк</h1>
+		<h1>Удалить определенный элемент из массива</h1>
+		<label for="input">Введите через пробел число (для создания массива)<br>
+			и удаляемый элемент. Нажмите ввод.</label>
+		<br>
+		<input v-model="string"
+					 @keydown.enter="removeItem"
+					 placeholder="2537365394 3"
+					 id="input">
+		<hr>
 	</div>
 	<div class="item">
-		<label for="input">Создайте массив из двух слов, <br>
-		                   вводя их поочерёдно и нажимая ENTER <br></label>
-		<input
-			id="input"
-			v-model="string"
-		  @keydown.enter="creating">
-	</div>
-	<div class="item">
-		<button
-			type="button"
-			@click="startingSubstring">Search
-		</button><hr>
-	</div>
-	<div class="item">
-		<span>{{ array }}</span> - {{ result }}
+		<ul>
+			<li v-for="(elem, ind) in results" :key="ind">
+				<span>{{ elem.start }}</span> - {{ elem.end }}
+			</li>
+		</ul>
 	</div>
 </div>
 </body>
