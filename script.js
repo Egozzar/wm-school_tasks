@@ -8,10 +8,12 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		arrayFilled() {
-			let [length, elem] = this.string.split(' ');
-			let start = `Элемент: ${elem}, количество: ${+length}шт `;
-			let end = Array.from({length}, () => +elem);
+		generateNumbers() {
+			let [elem, length] = this.string.split(' ');
+			elem = +elem;
+			let start = `Начальный элемент: ${elem}, количество: ${+length}шт `;
+
+			let end = Array.from({length}, () => elem++);
 
 			this.results.push({start, end});
 			this.string = '';

@@ -13,11 +13,11 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Массив с заданным количеством элементов</h1>
+		<h1>Массив указанной длины</h1>
 		<label for="input">Введите через пробел 2 числа и нажмите ввод.</label>
 		<br>
 		<input v-model="string"
-					 @keydown.enter="arrayFilled"
+					 @keydown.enter="generateNumbers"
 					 placeholder="12 5"
 					 id="input">
 		<hr>
