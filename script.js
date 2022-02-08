@@ -8,12 +8,11 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		removeItem() {
-			let [str, elem] = this.string.split(' ');
-			let arr = str.split('');
+		getRandom() {
+			let arr = this.string.split(',');
 			let start = arr.slice();
-
-			let end = arr.filter(item => item !== elem);
+			let indRandom = Math.floor(Math.random() * arr.length);
+			let end = arr[indRandom];
 
 			this.results.push({start, end});
 			this.string = '';

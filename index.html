@@ -13,13 +13,12 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Удалить определенный элемент из массива</h1>
-		<label for="input">Введите через пробел число (для создания массива)<br>
-			и удаляемый элемент. Нажмите ввод.</label>
+		<h1>Вернуть случайный элемент из массива</h1>
+		<label for="input">Введите через запятую числа и нажмите ввод.</label>
 		<br>
 		<input v-model="string"
-					 @keydown.enter="removeItem"
-					 placeholder="2537365394 3"
+					 @keydown.enter="getRandom"
+					 placeholder="22,31,1,0,45,14"
 					 id="input">
 		<hr>
 	</div>
