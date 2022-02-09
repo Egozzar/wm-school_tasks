@@ -3,27 +3,21 @@
 const app = Vue.createApp({
 	data() {
 		return {
-			sum: 7,
-			start: [0, 1, 2, 3, 4, 5, 6, 7],
+			string: '',
 			results: [],
 		}
 	},
 	methods: {
-		preparing() {
-			let clone = this.start.slice();
+		creating() {
+			if (this.string === '') return;
+			let end = [];
 
-			while (clone.length > 1) {
-				let item = clone.shift();
-				let item2 = clone.find(elem => elem + item === this.sum);
-
-				if (item2) {
-					let newElement = `${item} : ${item2}`;
-					this.results.push(newElement);
-					clone = clone.filter(elem => elem !== item && elem !== item2);
-				}
+			for (let i = 0; i < this.string.length; i++) {
+				end.push(this.string.substring(i - 1, i + 2));
 			}
-			this.results = this.results.length ? this.results : `Слагаемые не найдены`;
-		},
+			this.results.push({start: this.string, end});
+			this.string = '';
+		}
 	},
 });
 

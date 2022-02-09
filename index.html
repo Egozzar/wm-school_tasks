@@ -13,21 +13,24 @@
 <body>
 <div id="app" class="app">
 	<div class="item">
-		<h1>Равные в сумме пары чисел</h1>
-		<p>
-			Препарируемый массив: <span>{{ start }}</span><br>
-			Искомая сумма элементов: <span>{{ sum }}</span>
-		</p>
-	</div>
-	<div class="item">
-		<button
-			type="button"
-			@click.once="preparing">Transform
-		</button>
+		<h1>Массив строк по три символа</h1>
+		<label for="input">
+			Введите строку и нажмите ENTER
+		</label><br>
+		<input
+			id="input"
+		  v-model="string"
+		  @keydown.enter="creating">
 		<hr>
 	</div>
 	<div class="item">
-		<span>{{ results }}</span>
+		<ul>
+			<li v-for="(elem, ind) in results" :key="ind">
+				Строка: {{ elem.start }} <br>
+				<span>Массив: {{ elem.end }}</span>
+				<hr>
+			</li>
+		</ul>
 	</div>
 </div>
 </body>
